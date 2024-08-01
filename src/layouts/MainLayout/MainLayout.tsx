@@ -10,7 +10,6 @@ const MainLayout = () => {
           <div className={`my-10`}>
             <Outlet />
           </div>
-
           <Footer />
         </div>
       </main>

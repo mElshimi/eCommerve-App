@@ -1,4 +1,5 @@
 import Category from "./Category/Category";
+import Basket from "./Basket/Basket";
 import Product from "./Product/Product";
 
-export { Product, Category };
+export { Product, Category, Basket };

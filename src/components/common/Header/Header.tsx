@@ -1,24 +1,16 @@
-import {
-  Avatar,
-  Button,
-  DarkThemeToggle,
-  Dropdown,
-  Flowbite,
-  Navbar,
-} from "flowbite-react";
-import { RiShoppingCartLine } from "react-icons/ri";
-import { useDispatch, useSelector } from "react-redux";
+import { Basket } from "@components/ecommerce";
 import logoDark from "@imgs/logo-dark.svg";
-import { toggle } from "@store/themeSlice";
-import style from "./style.module.css";
+import { useAppDispatch } from "@store/hooks";
+import { toggle } from "@store/theme/themeSlice";
+import { Button, DarkThemeToggle, Flowbite, Navbar } from "flowbite-react";
+
 import { NavLink, useLocation } from "react-router-dom";
 
 // import { Link } from "react-router-dom";
 const Header = () => {
   const location = useLocation();
-  const dispatch = useDispatch();
-  const { isDark } = useSelector((state) => state.theme);
-
+  // const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   return (
     <header>
       <div className="flex items-center px-5 md:px-0 pt-2 justify-between">
@@ -33,14 +25,7 @@ const Header = () => {
               <DarkThemeToggle className="dark:text-yellow-300 text-zinc-600 " />
             </div>
           </Flowbite>
-          <div className="relative">
-            <RiShoppingCartLine className="dark:text-white text-5xl " />
-            <span
-              className={`${style.badge} font-medium absolute -translate-x-2/4 -translate-y-2/4 text-xs rounded-full dark:text-white text-slate-950`}
-            >
-              0
-            </span>
-          </div>
+          <Basket />
         </div>
       </div>
       <Navbar fluid className=" shadow-md">
@@ -88,17 +73,19 @@ const Header = () => {
           <Navbar.Link
             as={NavLink}
             to="/categories"
-            active={location.pathname === "/categories" ? true : false}
+            active={location.pathname.includes("/categories") ? true : false}
           >
             Categories
           </Navbar.Link>
-          <Navbar.Link
+          {/* <Navbar.Link
             as={NavLink}
             to="/products"
-            active={location.pathname === "/products" ? true : false}
+            active={
+              location.pathname === "/categories/products" ? true : false
+            }
           >
             Products
-          </Navbar.Link>
+          </Navbar.Link> */}
           <Navbar.Link
             as={NavLink}
             to="/about-us"

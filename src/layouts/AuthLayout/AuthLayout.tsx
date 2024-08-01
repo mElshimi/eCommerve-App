@@ -1,10 +1,10 @@
-import { toggle } from "@store/themeSlice";
+import { toggle } from "@store/theme/themeSlice";
 import { Button, DarkThemeToggle, Flowbite } from "flowbite-react";
 import { useDispatch } from "react-redux";
 import { NavLink, Outlet } from "react-router-dom";
 
 const AuthLayout = () => {
-//   const { isDark } = useSelector((state) => state.theme);
+  //   const { isDark } = useSelector((state) => state.theme);
   const dispatch = useDispatch();
   return (
     <>
