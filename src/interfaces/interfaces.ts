@@ -4,10 +4,10 @@ export interface ICategory {
   prefix: string;
   img: string;
 }
-
+type TLoading = "idle" | "pending" | "succeeded" | "failed";
 export interface ICategories {
   records: ICategory[];
-  loading: "idle" | "pending" | "succeeded" | "failed";
+  loading: TLoading;
   error: string | null;
 }
 
@@ -21,17 +21,18 @@ export interface IProduct {
 
 export interface IProducts {
   records: IProduct[];
-  loading: "idle" | "pending" | "succeeded" | "failed";
+  loading: TLoading;
   error: string | null;
 }
 
-interface Path {
-  pathname: string;
-  search: string;
-  hash: string;
+export interface LoadingProps {
+  status: TLoading;
+  error: null | string;
+  children: React.ReactNode;
 }
 
-export interface ILocation<State = any> extends Path {
-  state: State;
-  key: string;
+export type HasId = { id: string };
+export interface RenderListProps<T> {
+  records: T[];
+  renderItem: (record: T) => React.ReactNode;
 }
