@@ -1,18 +1,22 @@
-import styles from "./styles.module.css";
-const { category, categoryImg, categoryTitle } = styles;
-
-const Category = () => {
+import { ICategory } from "@interfaces/interfaces";
+import { Link } from "react-router-dom";
+const Category = ({ title, img, prefix }: ICategory) => {
   return (
     <>
-      <div className={``}>
-        <div className={` overflow-hidden rounded-full`}>
-          <img
-            className={`w-full`}
-            src="https://cdn-eu.dynamicyield.com/api/9876644/images/244c68ad42d8b__hp-w12-22032022-h_m-women_shirts-blouses.jpg"
-            alt="category-image"
-          />
-        </div>
-        <h4 className={`text-center mt-4 text-md`}>Title</h4>
+      
+      <div className={`text-center `}>
+        <Link to={`/categories/products/${prefix}`}>
+          <div
+            className={` overflow-hidden h-36 w-36 rounded-full flex justify-start items-center bg-gray-300`}
+          >
+            <img
+              className={`w-full`}
+              src={img}
+              alt={`${title} category image`}
+            />
+          </div>
+          <h4 className={`mt-4 text-md`}>{title}</h4>
+        </Link>
       </div>
     </>
   );

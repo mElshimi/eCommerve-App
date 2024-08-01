@@ -26,6 +26,7 @@
       "@hooks/*": ["src/hooks/*"],
       "@pages/*": ["src/pages/*"],
       "@routes/*": ["src/routes/*"],
+      "@interfaces/*": ["src/interfaces/*"],
       "@store/*": ["src/store/*"],
       "@styles/*": ["src/styles/*"],
       "@Layouts/*": ["src/Layouts/*"],
