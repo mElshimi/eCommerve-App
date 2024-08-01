@@ -1,7 +1,7 @@
 import { LoadingProps } from "@interfaces/interfaces";
 
 const Loading = ({ status, error, children }: LoadingProps) => {
-  console.log(error);
+
   if (status === "pending") {
     return <p className="text-center">loading please wait</p>;
   }

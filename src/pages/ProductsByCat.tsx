@@ -8,7 +8,7 @@ import {
 } from "@store/products/productsSlice";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-const Products = () => {
+const ProductsByCat = () => {
   const dispatch = useAppDispatch();
   const params = useParams();
 
@@ -35,4 +35,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default ProductsByCat;

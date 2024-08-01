@@ -5,7 +5,7 @@ import AboutUs from "@pages/AboutUs";
 import Categories from "@pages/Categories";
 import Home from "@pages/Home";
 import NotFound from "@pages/NotFound";
-import Products from "@pages/Products";
+import ProductsByCat from "@pages/ProductsByCat";
 import UserLogin from "@pages/UserLogin";
 import UserRegister from "@pages/UserRegister";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -22,12 +22,16 @@ const AppRouter = () => {
           element: <Home />,
         },
         {
+          path: "products",
+          element: <Categories />,
+        },
+        {
           path: "categories",
           element: <Categories />,
         },
         {
           path: "categories/products/:prefix",
-          element: <Products />,
+          element: <ProductsByCat />,
           loader: ({ params }) => {
             if (
               typeof params.prefix !== "string" ||
