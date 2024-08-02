@@ -77,6 +77,13 @@ const Header = () => {
           >
             Categories
           </Navbar.Link>
+          <Navbar.Link
+            as={NavLink}
+            to="/products"
+            active={location.pathname === "/products" ? true : false}
+          >
+            Products
+          </Navbar.Link>
           {/* <Navbar.Link
             as={NavLink}
             to="/products"

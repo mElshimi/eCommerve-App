@@ -1,5 +1,4 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import baseURL from "@util/baseURL";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { ICategory } from "src/interfaces/interfaces";
@@ -9,7 +8,7 @@ const actGetCategories = createAsyncThunk(
   async (_, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-      const { data } = await axios.get<ICategory[]>(`${baseURL}/categories`);
+      const { data } = await axios.get<ICategory[]>(`/category`);
       return data;
     } catch (error) {
       if (axios.isAxiosError(error)) {
