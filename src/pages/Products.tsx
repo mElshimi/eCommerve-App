@@ -3,25 +3,17 @@ import { Product } from "@components/ecommerce";
 import { Loading } from "@components/feedback";
 import useProductFullInfo from "@hooks/useProductFullInfo.";
 import { useAppDispatch, useAppSelector } from "@store/hooks";
-import {
-  actGetProductsByCatPrefix,
-  productsCleanUp,
-} from "@store/products/productsSlice";
+import { actGetProducts } from "@store/products/productsSlice";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
-const ProductsByCat = () => {
-  const dispatch = useAppDispatch();
-  const params = useParams();
 
+const Products = () => {
+  const dispatch = useAppDispatch();
   const { loading, error, records } = useAppSelector((state) => state.products);
   const products = useProductFullInfo(records);
-  useEffect(() => {
-    dispatch(actGetProductsByCatPrefix(params.prefix as string));
-    return () => {
-      dispatch(productsCleanUp());
-    };
-  }, [dispatch, params]);
 
+  useEffect(() => {
+    dispatch(actGetProducts());
+  }, [dispatch]);
   return (
     <>
       <Loading status={loading} error={error}>
@@ -36,4 +28,4 @@ const ProductsByCat = () => {
   );
 };
 
-export default ProductsByCat;
+export default Products;

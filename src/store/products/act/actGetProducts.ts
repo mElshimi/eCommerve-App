@@ -1,8 +1,7 @@
+import { IProduct } from "@interfaces/interfaces";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import baseURL from "@util/baseURL";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { IProduct } from "@interfaces/interfaces";
 
 const actGetProducts = createAsyncThunk(
   "products/actGetProducts",
@@ -10,7 +9,7 @@ const actGetProducts = createAsyncThunk(
     const { rejectWithValue } = thunkAPI;
     try {
       const { data } = await axios.get<IProduct[]>(
-        `${baseURL}/products`
+        `/products`
       );
       return data;
     } catch (error) {

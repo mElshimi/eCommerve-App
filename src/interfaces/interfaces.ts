@@ -17,6 +17,8 @@ export interface IProduct {
   price: string;
   cat_prefix: string;
   img: string;
+  quantity?: number;
+  max: number;
 }
 
 export interface IProducts {
@@ -35,4 +37,9 @@ export type HasId = { id: string };
 export interface RenderListProps<T> {
   records: T[];
   renderItem: (record: T) => React.ReactNode;
+}
+
+export interface ICartState {
+  items: { [key: string]: number };
+  productFullinfo: IProduct[];
 }
